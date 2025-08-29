@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>貯金目標達成アプリ</title>
+    <!-- Tailwind CSSを読み込み -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f5f5dc; /* パステルベージュの背景色 */
+        }
+        .container {
+            max-width: 600px;
+        }
+        .pastel-blue-bg {
+            background-color: #b3e5fc; /* パステル水色 */
+        }
+        .pastel-beige-bg {
+            background-color: #fdf5e6; /* パステルベージュ */
+        }
+    </style>
+</head>
+<body class="bg-[#f5f5dc] flex items-center justify-center min-h-screen p-4">
+
+    <!-- アプリケーションのメインコンテナ -->
+    <div class="container mx-auto p-6 rounded-2xl shadow-xl pastel-beige-bg">
+        <h1 class="text-3xl font-bold text-center mb-6 text-gray-800">貯金目標達成アプリ</h1>
+        <p class="text-center text-gray-600 mb-8">目標金額、予測出費、アルバイト情報を入力してください。</p>
+
+        <!-- 目標と出費の入力セクション -->
+        <div class="space-y-4 mb-8">
+            <div class="bg-white p-4 rounded-xl shadow-inner">
+                <label for="goalAmount" class="block text-gray-700 font-medium mb-1">目標金額 (円)</label>
+                <input type="number" id="goalAmount" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-200" placeholder="例: 100000">
+            </div>
+            <div class="bg-white p-4 rounded-xl shadow-inner">
+                <label for="monthlyExpense" class="block text-gray-700 font-medium mb-1">1ヶ月の予測出費 (円)</label>
+                <input type="number" id="monthlyExpense" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-200" placeholder="例: 50000">
+            </div>
+        </div>
+
+        <!-- アルバイト情報の入力セクション -->
+        <div class="space-y-6 mb-8">
+            <h2 class="text-xl font-semibold text-gray-700 text-center mb-4">アルバイト情報 (3種類)</h2>
+            <!-- アルバイト1 -->
+            <div class="pastel-blue-bg p-5 rounded-2xl shadow-md">
+                <h3 class="text-lg font-semibold text-gray-800 mb-2">アルバイト1</h3>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <div class="flex-1">
+                        <label for="wage1" class="block text-gray-700 mb-1">時給 (円)</label>
+                        <input type="number" id="wage1" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-200" placeholder="例: 1200">
+                    </div>
+                    <div class="flex-1">
+                        <label for="shifts1" class="block text-gray-700 mb-1">週何回</label>
+                        <input type="number" id="shifts1" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-200" placeholder="例: 3">
+                    </div>
+                    <div class="flex-1">
+                        <label for="hoursPerShift1" class="block text-gray-700 mb-1">1回あたりの労働時間 (時間)</label>
+                        <input type="number" id="hoursPerShift1" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-200" placeholder="例: 4">
+                    </div>
+                </div>
+            </div>
+            <!-- アルバイト2 -->
+            <div class="pastel-blue-bg p-5 rounded-2xl shadow-md">
+                <h3 class="text-lg font-semibold text-gray-800 mb-2">アルバイト2</h3>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <div class="flex-1">
+                        <label for="wage2" class="block text-gray-700 mb-1">時給 (円)</label>
+                        <input type="number" id="wage2" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-200" placeholder="例: 1500">
+                    </div>
+                    <div class="flex-1">
+                        <label for="shifts2" class="block text-gray-700 mb-1">週何回</label>
+                        <input type="number" id="shifts2" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-200" placeholder="例: 1">
+                    </div>
+                    <div class="flex-1">
+                        <label for="hoursPerShift2" class="block text-gray-700 mb-1">1回あたりの労働時間 (時間)</label>
+                        <input type="number" id="hoursPerShift2" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-200" placeholder="例: 5">
+                    </div>
+                </div>
+            </div>
+            <!-- アルバイト3 -->
+            <div class="pastel-blue-bg p-5 rounded-2xl shadow-md">
+                <h3 class="text-lg font-semibold text-gray-800 mb-2">アルバイト3</h3>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <div class="flex-1">
+                        <label for="wage3" class="block text-gray-700 mb-1">時給 (円)</label>
+                        <input type="number" id="wage3" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-200" placeholder="例: 1000">
+                    </div>
+                    <div class="flex-1">
+                        <label for="shifts3" class="block text-gray-700 mb-1">週何回</label>
+                        <input type="number" id="shifts3" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-200" placeholder="例: 0">
+                    </div>
+                    <div class="flex-1">
+                        <label for="hoursPerShift3" class="block text-gray-700 mb-1">1回あたりの労働時間 (時間)</label>
+                        <input type="number" id="hoursPerShift3" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-200" placeholder="例: 3">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 計算ボタン -->
+        <button id="calculateBtn" class="w-full bg-sky-400 text-white font-bold py-3 px-6 rounded-lg text-lg hover:bg-sky-500 transition-colors duration-300 shadow-md">
+            計算する
+        </button>
+
+        <!-- 結果表示セクション -->
+        <div id="result" class="mt-8 text-center text-gray-800 text-2xl font-semibold">
+            <!-- ここに結果が表示されます -->
+        </div>
+
+    </div>
+
+    <script>
+        document.getElementById('calculateBtn').addEventListener('click', () => {
+            // 入力値を取得
+            const goalAmount = parseFloat(document.getElementById('goalAmount').value) || 0;
+            const monthlyExpense = parseFloat(document.getElementById('monthlyExpense').value) || 0;
+            
+            // アルバイト情報の配列
+            const jobs = [
+                {
+                    wage: parseFloat(document.getElementById('wage1').value) || 0,
+                    shifts: parseFloat(document.getElementById('shifts1').value) || 0,
+                    hoursPerShift: parseFloat(document.getElementById('hoursPerShift1').value) || 0
+                },
+                {
+                    wage: parseFloat(document.getElementById('wage2').value) || 0,
+                    shifts: parseFloat(document.getElementById('shifts2').value) || 0,
+                    hoursPerShift: parseFloat(document.getElementById('hoursPerShift2').value) || 0
+                },
+                {
+                    wage: parseFloat(document.getElementById('wage3').value) || 0,
+                    shifts: parseFloat(document.getElementById('shifts3').value) || 0,
+                    hoursPerShift: parseFloat(document.getElementById('hoursPerShift3').value) || 0
+                }
+            ];
+
+            // 週あたりの総収入を計算
+            let weeklyIncome = 0;
+            jobs.forEach(job => {
+                weeklyIncome += job.wage * job.shifts * job.hoursPerShift;
+            });
+            
+            // 月あたりの総収入を計算 (1ヶ月を平均4.33週として計算)
+            const monthlyIncome = weeklyIncome * (52 / 12);
+            
+            // 月あたりの貯金額を計算
+            const monthlySavings = monthlyIncome - monthlyExpense;
+            
+            const resultDiv = document.getElementById('result');
+
+            // 貯金額が0以下の場合、目標達成が不可能であることを表示
+            if (monthlySavings <= 0) {
+                resultDiv.innerHTML = '<p class="text-red-500 font-bold">貯金額がマイナスまたはゼロのため、目標達成は不可能です。</p>';
+                return;
+            }
+
+            // 目標金額を達成するのに必要な月数を計算
+            const monthsNeeded = goalAmount / monthlySavings;
+            
+            // 現在の日付を取得
+            const today = new Date();
+            
+            // 目標達成日を計算
+            const targetDate = new Date();
+            targetDate.setMonth(today.getMonth() + monthsNeeded);
+            
+            // 日付をフォーマット
+            const formattedDate = targetDate.toLocaleDateString('ja-JP', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+
+            // 結果を画面に表示
+            resultDiv.innerHTML = `
+                <div class="p-6 rounded-lg pastel-blue-bg shadow-md inline-block">
+                    <p class="text-xl font-bold mb-2">目標達成日</p>
+                    <p class="text-4xl font-extrabold text-sky-800">${formattedDate}</p>
+                    <p class="text-sm mt-2">（約 ${Math.ceil(monthsNeeded)} ヶ月後）</p>
+                </div>
+            `;
+        });
+    </script>
+</body>
+</html>
